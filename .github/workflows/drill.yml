@@ -1,0 +1,22 @@
+name: Release Drill
+
+on:
+  workflow_dispatch:
+
+jobs:
+  drill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print drill checkpoint
+        run: echo "DRILL CHECKPOINT REACHED"
+
+      - name: Build drill report artifact
+        run: |
+          echo "DRILL CHECKPOINT REACHED" > drill-report.txt
+          cat drill-report.txt
+
+      - name: Upload drill report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: drill-report.txt
+          path: drill-report.txt
