@@ -1,0 +1,13 @@
+name: Release Drill CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Say hello
+        run: echo "Release Drill CI running for rehearsal"
