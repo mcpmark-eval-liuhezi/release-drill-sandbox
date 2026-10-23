@@ -1,0 +1,23 @@
+name: Package docs
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  package-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Copy docs into dist
+        run: |
+          mkdir -p dist
+          cp -r docs/. dist/
+
+      - name: Upload docs archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-archive
+          path: dist
